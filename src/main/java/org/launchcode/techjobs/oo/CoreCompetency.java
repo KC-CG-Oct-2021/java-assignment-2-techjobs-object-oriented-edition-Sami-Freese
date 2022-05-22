@@ -6,7 +6,7 @@ public class CoreCompetency {
 
     private int id;
     private static int nextId = 1;
-    private String value;
+    private String value = "Data not available";
 
     public CoreCompetency() {
         this.id = nextId;
@@ -40,7 +40,9 @@ public class CoreCompetency {
 
     public String getValue() {return value;}
 
-    public void setValue(String value) {this.value = value;}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
     public int getId() {return id;}
 }

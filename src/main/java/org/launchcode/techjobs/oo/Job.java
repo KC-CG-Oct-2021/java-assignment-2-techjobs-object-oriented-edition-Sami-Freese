@@ -7,6 +7,7 @@ public class Job {
     private int id;
     private static int nextId = 1;
 
+//    private String name = "Data not available";
     private String name;
     private Employer employer;
     private Location location;
@@ -45,6 +46,26 @@ public class Job {
     @Override
     public int hashCode() { return Objects.hash(getId()); }
 
+    @Override
+    public String toString() {
+//        if (name.length() < 1) {
+//            name = "Data not available";
+//        }
+
+        if (employer.toString() == "Data not available" && location.toString() == "Data not available" && positionType.toString() == "Data not available" && coreCompetency.toString() == "Data not available") {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        return "\n" +
+                "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                "\n";
+    }
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
@@ -54,6 +75,10 @@ public class Job {
 
     public void setName(String name) {
         this.name = name;
+//
+//        if (name == "") {
+//            name = "Data not available";
+//        }
     }
 
     public Employer getEmployer() {
@@ -86,6 +111,9 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+//        if (coreCompetency == null) {
+//            coreCompetency = new CoreCompetency("Data not available");
+//        }
     }
 
     public int getId() {
