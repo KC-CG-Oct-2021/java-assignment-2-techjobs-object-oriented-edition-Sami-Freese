@@ -37,12 +37,12 @@ public class JobTest {
 
     @Before
     public void createIncompleteJob() {
-        job_incomplete = new Job("Junior Dev", new Employer("Spredly"), new Location("Durham"), new PositionType("Developer"), new CoreCompetency());
+        job_incomplete = new Job("Junior Dev", new Employer("Spredly"), new Location("Durham"), new PositionType("Developer"), new CoreCompetency(""));
     }
 
     @Before
     public void createBlankJob() {
-        job_blank = new Job("", new Employer(), new Location(), new PositionType(), new CoreCompetency());
+        job_blank = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
     }
 
     @Test

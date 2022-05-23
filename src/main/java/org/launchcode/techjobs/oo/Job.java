@@ -25,11 +25,18 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
+//        if (name.length() < 1) {
+//            name = "Data not available";
+//        }
+//        else {
+//            this.name = name;
+//        }
         this.name = name;
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
+
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
