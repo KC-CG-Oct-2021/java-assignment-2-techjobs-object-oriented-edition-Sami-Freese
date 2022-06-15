@@ -20,7 +20,14 @@ public class JobTest {
     Job job_incomplete;
     Job job_blank;
 
+    // combine all Befores into Before all/before each statement?
     @Before
+
+    public void createJobs() {
+        job_one = new Job();
+        job_two = new Job();
+
+    }
     public void createJobOne() {
         job_one = new Job();
     }
@@ -54,51 +61,57 @@ public class JobTest {
     }
 
     @Test
-    public void testJobConstructorSetsAllFields () {
-        assert(job_complete.getName() instanceof String);
+    public void testJobConstructorSetsAllFields() {
+        Job job_complete = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertTrue(job_complete.getName() instanceof String);
         assertEquals(job_complete.getName(), "Product tester");
-        assert(job_complete.getEmployer() instanceof Employer);
+        assertTrue(job_complete.getEmployer() instanceof Employer);
         assertEquals(job_complete.getEmployer().toString(), "ACME");
-        assert(job_complete.getLocation() instanceof  Location);
+        assertTrue(job_complete.getLocation() instanceof  Location);
         assertEquals(job_complete.getLocation().toString(), "Desert");
-        assert(job_complete.getPositionType() instanceof PositionType);
+        assertTrue(job_complete.getPositionType() instanceof PositionType);
         assertEquals(job_complete.getPositionType().toString(), "Quality control");
-        assert(job_complete.getCoreCompetency() instanceof CoreCompetency);
+        assertTrue(job_complete.getCoreCompetency() instanceof CoreCompetency);
         assertEquals(job_complete.getCoreCompetency().toString(), "Persistence");
-    }
 
-    @Test
-    public void testJobToStringSpacing () {
-        assertEquals(job_complete.toString().charAt(0), '\n' );
-        assertEquals(job_complete.toString().charAt(job_complete.toString().length() - 1), '\n');
-    }
-
-    @Test
-    public void testJobStringContents () {
-        assertTrue(job_complete.toString().contains("\nID:"));
-        assertTrue(job_complete.toString().contains("\nName:"));
-        assertTrue(job_complete.toString().contains("\nEmployer:"));
-        assertTrue(job_complete.toString().contains("\nLocation:"));
-        assertTrue(job_complete.toString().contains("\nPosition Type:"));
-        assertTrue(job_complete.toString().contains("\nCore Competency:"));
-    }
-
-    @Test
-    public void testJobStringIncomplete () {
-        assertTrue(job_incomplete.toString().contains("Data not available"));
-    }
-
-    @Test
-    public void testJobStringBlank() {
-//        assertTrue(job_blank.getName().contains("Data not available"));
-        assertTrue(job_blank.getEmployer().toString().contains("Data not available"));
-        assertTrue(job_blank.getLocation().toString().contains("Data not available"));
-        assertTrue(job_blank.getPositionType().toString().contains("Data not available"));
-        assertTrue(job_blank.getCoreCompetency().toString().contains("Data not available"));
-    }
-
-    @Test
-    public void testJobStringVoid() {
-        assertEquals(job_blank.toString(), "OOPS! This job does not seem to exist.");
     }
 }
+
+    //add equality test
+//
+//    @Test
+//    public void testJobToStringSpacing() {
+//        assertEquals(job_complete.toString().charAt(0), '\n' );
+//        assertEquals(job_complete.toString().charAt(job_complete.toString().length() - 1), '\n');
+//    }
+//
+//    @Test
+//    public void testJobStringContents () {
+//        assertTrue(job_complete.toString().contains("\nID:"));
+//        assertTrue(job_complete.toString().contains("\nName:"));
+//        assertTrue(job_complete.toString().contains("\nEmployer:"));
+//        assertTrue(job_complete.toString().contains("\nLocation:"));
+//        assertTrue(job_complete.toString().contains("\nPosition Type:"));
+//        assertTrue(job_complete.toString().contains("\nCore Competency:"));
+//    }
+//
+//    @Test
+//    public void testJobStringIncomplete () {
+//        assertTrue(job_incomplete.toString().contains("Data not available"));
+//    }
+//
+//    @Test
+//    public void testJobStringBlank() {
+////        assertTrue(job_blank.getName().contains("Data not available"));
+//        assertTrue(job_blank.getEmployer().toString().contains("Data not available"));
+//        assertTrue(job_blank.getLocation().toString().contains("Data not available"));
+//        assertTrue(job_blank.getPositionType().toString().contains("Data not available"));
+//        assertTrue(job_blank.getCoreCompetency().toString().contains("Data not available"));
+//    }
+//
+//    @Test
+//    public void testJobStringVoid() {
+//        assertEquals(job_blank.toString(), "OOPS! This job does not seem to exist.");
+//    }
+//}
