@@ -63,8 +63,7 @@ public class Job {
             return "OOPS! This job does not seem to exist.";
         }
 
-        return "\n" +
-                "\nID: " + id +
+        return  "\nID: " + id +
                 "\nName: " + name +
                 "\nEmployer: " + employer +
                 "\nLocation: " + location +
