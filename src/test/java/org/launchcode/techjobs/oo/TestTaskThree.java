@@ -242,10 +242,8 @@ public class TestTaskThree extends AbstractTest {
 
         // Use reflection to make both objects have the same id and test
         Field anotherJobIdField = Job.class.getDeclaredField("id");
-        System.out.println(anotherJobIdField);
         anotherJobIdField.setAccessible(true);
         anotherJobIdField.set(anotherJob, getJobId(job));
-        System.out.println(anotherJobIdField);
         assertTrue(job.equals(anotherJob));
     }
 
